@@ -1,0 +1,1 @@
+INSERT INTO burger (burger_name, devoured) VALUES ('Jalapeno Bacon Burger', 0),('Fried Egg Burger', 0),('Cheeseburger Deluxe', 0);
