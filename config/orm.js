@@ -7,7 +7,7 @@
 // Export the ORM object in module.exports.
 
 // Import MySQL connection.
-let connection = require("../config/connection.js");
+let connection = require("./connection.js");
 
 // Helper function for SQL syntax.
 function printQuestionMarks(num) {
@@ -44,7 +44,7 @@ var orm = {
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
+  insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -64,7 +64,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  update: function(table, objColVals, condition, cb) {
+  updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
