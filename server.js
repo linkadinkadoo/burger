@@ -1,7 +1,7 @@
 let express = require("express");
 let bodyParser = require("body-parser");
 
-let port = 3060;
+let port = process.env.port||3000;
 
 let app = express();
 

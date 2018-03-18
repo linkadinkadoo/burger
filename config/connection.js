@@ -3,13 +3,19 @@
 
 let mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  port: 3306,
-  host: "localhost",
-  user: "root",
-  password: "elephant",
-  database: "burger_db"
-});
+var connection;
+
+// Create connection to MySql database
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "elephant",
+    database: "burger_db"
+  });
+}
 
 // Make connection.
 connection.connect(function(err) {
@@ -22,3 +28,5 @@ connection.connect(function(err) {
 
 // Export connection for our ORM to use.
 module.exports = connection;
+
+
